@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{3A115446-63A1-4E71-833F-9F90BE57D5A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSUnitTest", "MSUnitTest\MSUnitTest.csproj", "{92BE09A7-3A94-44DD-8A7A-10C4483D403C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumAutomation", "SeleniumAutomation\SeleniumAutomation.csproj", "{6E08FD08-8D77-4167-A545-61FBCF2E91A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverCorrection", "DriverCorrection\DriverCorrection.csproj", "{5419BA86-D7E4-4039-B309-E3A8287A1E94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A115446-63A1-4E71-833F-9F90BE57D5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A115446-63A1-4E71-833F-9F90BE57D5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A115446-63A1-4E71-833F-9F90BE57D5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A115446-63A1-4E71-833F-9F90BE57D5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92BE09A7-3A94-44DD-8A7A-10C4483D403C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BE09A7-3A94-44DD-8A7A-10C4483D403C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BE09A7-3A94-44DD-8A7A-10C4483D403C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BE09A7-3A94-44DD-8A7A-10C4483D403C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E08FD08-8D77-4167-A545-61FBCF2E91A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E08FD08-8D77-4167-A545-61FBCF2E91A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E08FD08-8D77-4167-A545-61FBCF2E91A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E08FD08-8D77-4167-A545-61FBCF2E91A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5419BA86-D7E4-4039-B309-E3A8287A1E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5419BA86-D7E4-4039-B309-E3A8287A1E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5419BA86-D7E4-4039-B309-E3A8287A1E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5419BA86-D7E4-4039-B309-E3A8287A1E94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
