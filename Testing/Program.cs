@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
@@ -14,6 +16,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Testing
 {
@@ -21,68 +25,93 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            IWebDriver driver;
-            string filePath= @"C:\Users\Vishnu\Desktop\Files\";
-            bool aaa = Directory.Exists(filePath + @"\\Failed_TC_Screenshots");
 
-            string[] pdfFiles = Directory.GetFiles(@"C:\Users\Vishnu\Desktop\Files\Reports").Select(Path.GetFileName).ToArray();
 
-            if (!Directory.Exists(filePath + @"\\Failed_TC_Screenshots"))
-                Directory.CreateDirectory(filePath + @"\\Failed_TC_Screenshots");
+            Employee ele3 = CreateEmptyObject<Employee>();
 
-            string pathString = MethodInfo.GetCurrentMethod().ToString().Substring(5, 4);
+            NewsPapers ele4 = CreateEmptyObject<NewsPapers>();
 
-            //InternetExplorerOptions options = new InternetExplorerOptions();
-            //options.IntroduceInstabilityByIgnoringProtectedModeSettings = false;
-            //driver = new InternetExplorerDriver(@"C:\Users\vmadmin\Documents\visual studio 2015\Projects\Testing\packages\Selenium.WebDriver.IEDriver.3.6.0\driver", options);
-            //driver = new InternetExplorerDriver();
-            string folderPath = ConfigurationManager.AppSettings["FolderPath"];
-            string aa = DateTime.Now.Millisecond.ToString() ;
+            ele3.PrintName("");
+             ele3.PrintLastName("");
+
+
+            IWebDriver driver=null;
             try
             {
+                List<string> tt = new List<string>();
+                IDictionary<string, string> dtt = new Dictionary<string, string>();
 
-                FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@"C:\Users\z003uutr\source\repos\IS_Selenium_Automation\Testing\drivers\");
-                service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe"; 
-                driver = new FirefoxDriver(service);
-                driver.Navigate().GoToUrl("http://google.com");
+                string file = @"C:\Users\Vishnu\Desktop\Testing.xml";
 
-                ///driver.Navigate().GoToUrl("http://localhost");
+                XDocument xmlDoc = XDocument.Load(file);
 
-                //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
-                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-                // string title = driver.Title;
+                //var q = (from myConfig in xmlDoc.Elements("Template")
+                  //       select myConfig.Attribute("Name").Value).First();
+
+                XmlDocument doc = new XmlDocument();
+                doc.Load(file);
+
+                XmlNodeList elemList = doc.GetElementsByTagName("Template");
+
+                XmlElement elee = doc.GetElementById("1");
+                for (int i = 0; i < elemList.Count; i++)
+                {
+                    string attrVal = elemList[i].Attributes["Name"].Value;
+
+                    if(attrVal== "Template2")
+                    {
+                        tt.Add(elemList[i].Attributes["Name"].Value);
+                        tt.Add(elemList[i].Attributes["StartDate"].Value);
+                        tt.Add(elemList[i].Attributes["EndDate"].Value);
+
+                        dtt.Add("Name", elemList[i].Attributes["Name"].Value);
+                        dtt.Add("StartDate", elemList[i].Attributes["StartDate"].Value);
+                        dtt.Add("EndDate", elemList[i].Attributes["EndDate"].Value);
+                    }
+                }
 
 
-                //IJavaScriptExecutor Executor = ((IJavaScriptExecutor)driver);
-                //Executor.ExecuteScript("arguments[0].click();", driver.FindElement(By.XPath("//a[@id='Reporting']")));
-
-                //string Script = "javascript:document.getElementById('Reporting').click();";
-                //((IJavaScriptExecutor)driver).ExecuteScript(Script);
-
-                //string Script1 = "javascript:document.getElementById('Dashboard').click();";
-                //((IJavaScriptExecutor)driver).ExecuteScript(Script1);
-
-                //string resource = "javascript:document.getElementByClassName('resource').click();";
-                //((IJavaScriptExecutor)driver).ExecuteScript(resource);
 
 
-                //ManageTimeOut(driver);
+                driver = new ChromeDriver(@"C:\Users\Vishnu\Desktop\Python\drivers");
 
+                driver.Navigate().GoToUrl("https://news.google.com/news/headlines?hl=en-IN&ned=in&gl=IN");
+                driver.Manage().Window.Maximize();
 
+                IWebElement ele = driver.FindElement(By.XPath(".//*[@id='gb']//span[.='Technology']"));
+                IWebElement ele1 = driver.FindElement(By.XPath(".//*[@id='gb']//span[.='India']"));
 
-                //ReadOnlyCollection<IWebElement> elementRepots = driver.FindElements(By.XPath("//a[@id='Reporting']"));
-                //elementRepots[0].Click();
+                Actions builder = new Actions(driver);//simply my webdriver
 
-                //ReadOnlyCollection<IWebElement> links = driver.FindElements(By.XPath("//div"));
-                driver.Close();
+                int X = ele.Location.X;
+                int Y = ele.Location.Y;
+
+                builder.MoveToElement(ele).MoveByOffset(X, Y).Perform();
+                Thread.Sleep(4000);
+                driver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(15);
+                builder.MoveToElement(ele1).MoveByOffset(ele1.Location.X, ele1.Location.X).Perform();
+                Thread.Sleep(4000);
+
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                var element = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(".//*[@id='gb']//span[.='Technology']")));
+                Actions action = new Actions(driver);
+                action.MoveToElement(element).Perform();
+
+                Thread.Sleep(4000);
+
+                //driver.Close();
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                //driver.Quit();
+                driver.Close();
             }
-            
+            finally
+            {
+                driver.Close();
+            }
+
         }
 
         public static void ManageTimeOut(IWebDriver driver)
@@ -90,6 +119,54 @@ namespace Testing
             // Manage time out for the web page and controls load
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
+        }
+
+        public static IDictionary<string, string> AddToDict(string templateName)
+        {
+            IDictionary<string, string> dtt = new Dictionary<string, string>();
+
+            switch (templateName)
+            {
+                case "Template1":
+                    dtt=ReturnDict(templateName);
+                    break;
+                case "Template2":
+                    dtt = ReturnDict(templateName);
+                    break;
+                default:
+                    break;
+            }
+            return dtt;
+        }
+
+        public static IDictionary<string, string> ReturnDict(string templateName)
+        {
+            IDictionary<string, string> dtt = new Dictionary<string, string>();
+            string file = @"C:\Users\Vishnu\Desktop\Testing.xml";
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(file);
+
+            XmlNodeList elemList = doc.GetElementsByTagName("Template");
+            for (int i = 0; i < elemList.Count; i++)
+            {
+                string attrVal = elemList[i].Attributes["Name"].Value;
+
+                if (attrVal == templateName)
+                {
+                    dtt.Add("Name", elemList[i].Attributes["Name"].Value);
+                    dtt.Add("StartDate", elemList[i].Attributes["StartDate"].Value);
+                    dtt.Add("EndDate", elemList[i].Attributes["EndDate"].Value);
+                }
+            }
+
+            return dtt;
+        }
+
+
+        public static T CreateEmptyObject<T>()
+        {
+            return (T)Activator.CreateInstance(typeof(T)); ;
         }
     }
 }

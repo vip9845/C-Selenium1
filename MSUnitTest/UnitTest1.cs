@@ -114,6 +114,8 @@ namespace MSUnitTest
                 }
                 Thread.Sleep(2000);
 
+                Assert.Inconclusive("Method that does not return a value");
+
                 Console.WriteLine("Step-4: Test Method Completed \n");
                 WriteLog("Step-4: Test Method Completed \n");
             }
