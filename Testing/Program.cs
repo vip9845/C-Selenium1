@@ -25,6 +25,22 @@ namespace Testing
     {
         static void Main(string[] args)
         {
+            List<Users> users = new List<Users>();
+
+            users.Add( new Users { UserID=1,Name="Padmakar",Age=30,EmailID="padma@gmail.com",PhoneNo=45654645});
+            users.Add(new Users { UserID = 2, Name = "Debnath", Age = 40, EmailID = "debnath@gmail.com", PhoneNo = 7867867 });
+            users.Add(new Users { UserID = 3, Name = "Hebsi", Age = 23, EmailID = "hebsi@gmail.com", PhoneNo = 21323123 });
+
+            //var userlist = from user in users
+            //            select user.Name;
+
+            var userlist = users.Select(x => x);
+
+            foreach (var user in userlist)
+            {
+                Console.WriteLine(user.Name);
+            }
+
 
 
             Employee ele3 = CreateEmptyObject<Employee>();
@@ -168,5 +184,16 @@ namespace Testing
         {
             return (T)Activator.CreateInstance(typeof(T)); ;
         }
+    }
+
+    public class Users
+    {
+        public int UserID { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string EmailID { get; set; }
+        public long PhoneNo { get; set; }
+
+        
     }
 }

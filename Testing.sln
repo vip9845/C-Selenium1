@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroTraining", "EuroTraining\EuroTraining.csproj", "{A7429F73-E51B-4C93-B563-2562BF026A0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuuningVSDCP", "RuuningVSDCP\RuuningVSDCP.csproj", "{873EF4BA-9F2A-472A-97EE-7841F2B0D624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTestConsole", "VSTestConsole\VSTestConsole.csproj", "{98A3C234-1353-4EF6-A5FD-DCC02CEBAF21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{A7429F73-E51B-4C93-B563-2562BF026A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7429F73-E51B-4C93-B563-2562BF026A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7429F73-E51B-4C93-B563-2562BF026A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{873EF4BA-9F2A-472A-97EE-7841F2B0D624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{873EF4BA-9F2A-472A-97EE-7841F2B0D624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{873EF4BA-9F2A-472A-97EE-7841F2B0D624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{873EF4BA-9F2A-472A-97EE-7841F2B0D624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A3C234-1353-4EF6-A5FD-DCC02CEBAF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A3C234-1353-4EF6-A5FD-DCC02CEBAF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A3C234-1353-4EF6-A5FD-DCC02CEBAF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A3C234-1353-4EF6-A5FD-DCC02CEBAF21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

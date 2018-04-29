@@ -17,7 +17,7 @@ namespace SeleniumAutomation.Action
     public class DashboardAction
     {
         DashboardObject dashboardObject;
-        IWebDriver driver;
+        //IWebDriver driver;
 
         public DashboardAction(IWebDriver driver)
         {

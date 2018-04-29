@@ -10,6 +10,8 @@ using System.IO;
 
 namespace UnitTesting
 {
+
+    [DeploymentItem("ProjectName/Folder/SubFolder/file.xml", "Folder/Subfolder")]
     [TestClass]
     public class UnitTest1
     {
