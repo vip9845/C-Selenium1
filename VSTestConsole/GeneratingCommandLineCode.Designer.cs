@@ -1,6 +1,6 @@
 ﻿namespace VSTestConsole
 {
-    partial class Form1
+    partial class GeneratingCommandLineCode
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,9 @@
             this.btnRunInVSCMD = new System.Windows.Forms.Button();
             this.btnMove = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtcmd = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -128,6 +131,7 @@
             this.btnRunInVSCMD.TabIndex = 10;
             this.btnRunInVSCMD.Text = "Run in VSCMD";
             this.btnRunInVSCMD.UseVisualStyleBackColor = true;
+            this.btnRunInVSCMD.Click += new System.EventHandler(this.btnRunInVSCMD_Click);
             // 
             // btnMove
             // 
@@ -151,11 +155,42 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // Form1
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(70, 323);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(168, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "VSTest Command : ";
+            // 
+            // txtcmd
+            // 
+            this.txtcmd.Location = new System.Drawing.Point(244, 323);
+            this.txtcmd.Multiline = true;
+            this.txtcmd.Name = "txtcmd";
+            this.txtcmd.Size = new System.Drawing.Size(636, 130);
+            this.txtcmd.TabIndex = 15;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(280, 71);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 16;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // GeneratingCommandLineCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 353);
+            this.ClientSize = new System.Drawing.Size(962, 473);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.txtcmd);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnMove);
             this.Controls.Add(this.btnRunInVSCMD);
@@ -168,8 +203,8 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "GeneratingCommandLineCode";
+            this.Text = "VSTest Command Generator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,6 +224,9 @@
         private System.Windows.Forms.Button btnRunInVSCMD;
         private System.Windows.Forms.Button btnMove;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtcmd;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 

@@ -1,25 +1,20 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VSTestConsole
 {
-    public partial class Form1 : Form
+    public partial class GeneratingCommandLineCode : Form
     {
         string assemblyDllPath = string.Empty;
         string filterText = string.Empty;
         static List<string> output1 = new List<string>();
         static List<string> output2 = new List<string>();
 
-        public Form1()
+        public GeneratingCommandLineCode()
         {
             InitializeComponent();
         }
@@ -136,6 +131,33 @@ namespace VSTestConsole
             }
             
 
+        }
+
+        private void btnRunInVSCMD_Click(object sender, EventArgs e)
+        {
+            txtcmd.Clear();
+            string cmd = string.Empty;
+            string finalcmd = string.Empty;
+
+            if(listBox2.Items.Count>0)
+            {
+                foreach (object liItem in listBox2.Items)
+                    cmd += liItem.ToString() + ","; // or .Text
+
+                cmd = "/Tests:" + cmd.TrimEnd(',');
+            }
+            
+            finalcmd = string.Format("vstest.console.exe \"{0}\" {1} /Logger:trx", assemblyDllPath,cmd);
+
+            txtcmd.Text = finalcmd;         
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            output1 = FindTestNames(assemblyDllPath);
+            lblCount.Text = output1.Count.ToString();
+            listBox1.DataSource = output1;
+            txtFilter.Clear();
         }
     }
 }

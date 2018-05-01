@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="orderedtest1" storage="c:\users\vishnu\desktop\vs projects 2018\is_selenium_automation\seleniumautomation\orderedtest1.orderedtest" id="274fc8a0-fc89-4272-b5bf-25b48ac3be42" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="f904d401-1430-0a13-e4ec-31a3ed85c461" name="TC03_VerifyingNavigationToReportsPage" storage="bin\debug\seleniumautomation.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="bd154000-8a5c-ab75-3048-27b09d9e0f53" name="TC02_VerifyingNavigationToDownloadPage" storage="bin\debug\seleniumautomation.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="f904d401-1430-0a13-e4ec-31a3ed85c461" name="TC03_VerifyingNavigationToReportsPage" storage="bin\debug\seleniumautomation.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="f0da62e2-c806-e017-97fd-9356579293d2" name="TC06_CreateReportForDashboard_UsingReportWidget" storage="bin\debug\seleniumautomation.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>
